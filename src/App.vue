@@ -1,10 +1,19 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import Button from './components/Button/Botton.vue'
+import { ButtonInstance } from './components/Button/types'
+
+
+const buttonRef = ref<ButtonInstance | null>()
+
+onMounted(() => {
+  console.log(buttonRef.value?.ref)
+})
 </script>
 
 <template>
   <div class="container">
-    <Button type="primary" size="large" plain disabled>Test Button</Button>
+    <Button type="primary" size="large" plain disabled ref="buttonRef">Test Button</Button>
   </div>
 </template>
 

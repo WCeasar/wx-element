@@ -6,8 +6,7 @@
     'is-round': round,
     'is-circle': circle,
     'is-disabled': disabled,
-  }" :disabled="disabled">
-
+  }" :disabled="disabled" :type="nativeType" :autofocus="autofocus" ref="_ref">
     <span>
       <slot></slot>
     </span>
@@ -15,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, withDefaults, defineOptions } from 'vue'
+import { ref } from 'vue'
 
 import type { ButtonProps } from './types.ts'
 
@@ -24,6 +23,13 @@ defineOptions({
 })
 
 withDefaults(defineProps<ButtonProps>(), {
+  nativeType: 'button'
+})
+
+const _ref = ref<HTMLButtonElement>()
+
+defineExpose({
+  ref: _ref // ref会自动解包
 })
 
 </script>
