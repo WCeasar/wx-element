@@ -14,6 +14,10 @@ onMounted(() => {
 <template>
   <div class="container">
     <Button type="primary" size="large" plain disabled ref="buttonRef">Test Button</Button>
+    <Button type="success" size="large" plain>Test Button</Button>
+    <Button type="danger" size="large">Test Button</Button>
+    <Button type="warning" size="large">Test Button</Button>
+    <Button type="info" size="large" plain>Test Button</Button>
   </div>
 </template>
 
