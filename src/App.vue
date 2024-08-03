@@ -4,6 +4,7 @@ import Button from './components/Button/Botton.vue'
 import { ButtonInstance } from './components/Button/types'
 import Collapse from './components/Collapse/Collapse.vue'
 import Item from './components/Collapse/CollapseItem.vue'
+import Icon from './components/Icon/Icon.vue'
 
 
 const buttonRef = ref<ButtonInstance | null>()
@@ -11,6 +12,8 @@ const buttonRef = ref<ButtonInstance | null>()
 onMounted(() => {
   console.log(buttonRef.value?.ref)
 })
+
+const openValue = ref(['a'])
 </script>
 
 <template>
@@ -29,10 +32,10 @@ onMounted(() => {
     <Button type="info" plain>Info</Button>
     <Button type="warning" plain>Warning</Button>
     <Button type="danger" plain>Danger</Button><br /><br />
-    <Button size="large">Large</Button>
-    <Button size="small">Small</Button><br /><br />
+    <Button size="large" loading>Large</Button>
+    <Button size="small" icon="arrow-up">Small</Button><br /><br />
 
-    <Collapse>
+    <Collapse v-model="openValue" accordion>
       <Item name="a" title="Title A">
         <h1>headline title</h1>
         <div> this is content a aaa </div>
@@ -44,9 +47,9 @@ onMounted(() => {
         <div> this is cccc test </div>
       </Item>
     </Collapse>
+
+    <Icon color="red" icon="fa-user-secret " spin type="primary"> </Icon>
   </main>
 </template>
 
-<style scoped>
-.container {}
-</style>
+<style scoped></style>
